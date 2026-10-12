@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#142d4e">
+  <meta name="description" content="Website tự ôn trắc nghiệm Kinh tế y tế và Quản lý tài chính — đề K21.">
+  <title>Đề K21 KTYT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Đề K21 KTYT trang chủ">
+      <span class="brand-mark" aria-hidden="true">K</span>
+      <span><strong>ĐỀ K21 KTYT</strong><small>Kinh tế y tế · Quản lý tài chính</small></span>
+    </a>
+    <div class="topbar-tag"><span class="status-dot"></span> Ôn tập offline</div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">STUDY MODE / 01</p>
+        <h1>Đề K21<br><span>KTYT</span></h1>
+        <p class="hero-description">Làm trắc nghiệm ngẫu nhiên, tự chấm điểm và xem giải thích sau khi nộp bài. Không cần tài khoản, không cần internet.</p>
+      </div>
+      <div class="hero-card" aria-label="Thông tin bộ câu hỏi">
+        <div class="hero-card-icon" aria-hidden="true">✳</div>
+        <div><span class="hero-card-number" id="bank-count">50</span><span class="hero-card-label">câu hỏi trong ngân hàng</span></div>
+        <div class="hero-card-rule"></div>
+        <div class="hero-card-foot"><span>ĐỀ K21</span><span>•</span><span>TRẮC NGHIỆM</span></div>
+      </div>
+      <div class="hero-decoration decor-one" aria-hidden="true"></div>
+      <div class="hero-decoration decor-two" aria-hidden="true"></div>
+    </section>
+
+    <section class="setup-panel" aria-labelledby="setup-heading">
+      <div class="setup-heading-wrap">
+        <span class="section-index">01</span>
+        <div><h2 id="setup-heading">Thiết lập lượt làm</h2><p>Thứ tự câu hỏi và đáp án sẽ được trộn tự động.</p></div>
+      </div>
+      <div class="setup-controls">
+        <label class="select-field" for="question-count"><span>Số câu trong lượt</span>
+          <select id="question-count">
+            <option value="all" selected>Tất cả câu hỏi</option>
+            <option value="10">10 câu</option>
+            <option value="15">15 câu</option>
+            <option value="20">20 câu</option>
+          </select>
+        </label>
+        <button id="start-button" class="button button-primary"><span>⤨</span> Trộn đề & bắt đầu</button>
+      </div>
+      <p class="setup-note"><span aria-hidden="true">ⓘ</span> Gợi ý: chọn “Tất cả câu hỏi” để ôn trọn bộ hiện có. Có thể làm lại bao nhiêu lần tùy thích.</p>
+    </section>
+
+    <section id="quiz-layout" class="quiz-layout" aria-label="Khu vực làm bài trắc nghiệm">
+      <div class="quiz-main panel">
+        <div class="quiz-toolbar">
+          <span class="quiz-label"><span class="live-dot"></span> ĐANG LÀM BÀI</span>
+          <span class="question-counter" id="question-counter">Câu 1 / 50</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="Tiến độ làm bài" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+        <div id="result-banner" class="result-banner" hidden aria-live="polite"></div>
+        <div class="question-content">
+          <p class="question-kicker" id="question-kicker">CÂU HỎI 01</p>
+          <h2 id="question-text">Đang tải câu hỏi…</h2>
+          <div id="question-context" class="question-context" hidden></div>
+          <div id="answer-options" class="answer-options"></div>
+          <div id="explanation-box" class="explanation-box" hidden></div>
+        </div>
+        <div class="quiz-footer">
+          <button id="previous-button" class="button button-secondary">← Câu trước</button>
+          <span id="answered-count" class="answered-count">Đã chọn 0 / 50</span>
+          <button id="next-button" class="button button-secondary">Câu tiếp →</button>
+        </div>
+        <div class="submit-row">
+          <span id="submit-hint">Đáp án sẽ được giải thích sau khi nộp bài.</span>
+          <button id="submit-button" class="button button-submit">Nộp bài <span>↗</span></button>
+        </div>
+      </div>
+
+      <aside class="quiz-sidebar">
+        <section class="panel navigator-panel">
+          <div class="sidebar-title-row"><div><p class="sidebar-eyebrow">ĐIỀU HƯỚNG</p><h3>Danh sách câu</h3></div><span class="nav-count" id="nav-count">50</span></div>
+          <div id="question-navigator" class="question-navigator" aria-label="Chọn câu hỏi"></div>
+          <div class="legend"><span><i class="legend-dot legend-current"></i> Đang xem</span><span><i class="legend-dot legend-answered"></i> Đã chọn</span></div>
+        </section>
+        <section class="panel quick-stats">
+          <p class="sidebar-eyebrow">TIẾN ĐỘ</p>
+          <div class="stat-line"><span>Đã trả lời</span><strong id="stat-answered">0</strong></div>
+          <div class="stat-line"><span>Còn lại</span><strong id="stat-remaining">50</strong></div>
+          <div class="mini-progress"><div id="mini-progress-fill"></div></div>
+          <p class="sidebar-note">Cứ chọn đáp án rồi chuyển câu. Câu đã chọn vẫn được giữ khi ông quay lại.</p>
+        </section>
+      </aside>
+    </section>
+
+    <section id="finish-panel" class="finish-panel panel" hidden>
+      <div class="finish-icon" aria-hidden="true">✓</div>
+      <p class="eyebrow">KẾT QUẢ LUYỆN TẬP</p>
+      <h2 id="finish-title">Ôn tập hoàn tất!</h2>
+      <div class="score-display"><strong id="score-number">0/22</strong><span id="score-percent">0%</span></div>
+      <p id="score-message" class="score-message"></p>
+      <div class="result-stats">
+        <div><strong id="correct-count">0</strong><span>Câu đúng</span></div>
+        <div><strong id="wrong-count">0</strong><span>Câu sai</span></div>
+        <div><strong id="blank-count">0</strong><span>Bỏ trống</span></div>
+      </div>
+      <div class="finish-actions">
+        <button id="review-wrong-button" class="button button-primary">Ôn lại câu sai</button>
+        <button id="restart-button" class="button button-secondary">Làm lượt mới ↻</button>
+      </div>
+      <p class="review-tip">Muốn xem giải thích từng câu, hãy chọn số câu ở bảng “Danh sách câu”.</p>
+    </section>
+
+    <section class="source-note">
+      <span class="source-note-icon" aria-hidden="true">✎</span>
+      <p><strong>Ghi chú về tài liệu:</strong> Ngân hàng gồm 50 câu ôn tập tổng hợp từ ảnh đề K21 (mã đề 001 và 002) và nội dung bài giảng. Sau khi nộp bài, mỗi câu có giải thích và mục tham chiếu ghi tên tài liệu cùng số trang PDF. Một số câu được chuẩn hóa hoặc bổ sung từ slide khi ảnh đề không đủ rõ; xem kỹ ghi chú tham chiếu nếu câu hỏi gốc chưa chặt về khái niệm.</p>
+    </section>
+
+    <footer class="page-footer"><span>Made for study sessions ✦</span><span>Đề K21 KTYT · HTML / CSS / JavaScript</span></footer>
+  </main>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
